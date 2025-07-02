@@ -5,19 +5,19 @@
 <br/><hr/><br/>
 
 <header><div align="center">
-<img
+<header><img
     src="https://raw.githubusercontent.com/olion-lang/assets/refs/heads/main/olion-header.png"
-    width="66.7%"
-/>
+/></header>
+<br/>
 <h1>
     Olion - A programming language with Algebraic Effects on WASI.
 </h1>
-</div></header>
+</div>
 
 <br/>
 
 <div align="center">
-<p>(<i><strong>writing in progress</strong></i>...)</p>
+<p>(<i><strong>fully writing in progress</strong></i>...)</p>
 </div>
 
 <br/>
