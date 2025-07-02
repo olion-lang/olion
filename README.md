@@ -1,4 +1,5 @@
-<p align="center">THIS IS CURRENTLY <strong>JUST AN IDEA</strong> AND THERE's <strong>NO WORKING THINGS</strong>.</p>
+<p align="center">THIS IS CURRENTLY <strong>JUST AN IDEA</strong>.</p>
+<p align="center">THERE's ONLY <strong>WRITING-IN-PROGRESS DRAFT</string>S, AND <strong>NO WORKING THINGS</strong>.</p>
 <p align="center">PLEASE WAIT FOR OUR INITIAL RELEASE!</p>
 
 <br/><hr/><br/>
@@ -9,9 +10,17 @@
     width="66.7%"
 />
 <h1>
-    Olion - a programming language with Algebraic Effects on WASI.
+    Olion - A programming language with Algebraic Effects on WASI.
 </h1>
 </div></header>
+
+<br/>
+
+<div align="center">
+<p><i><strong>(writing in progress...)</strong></i></p>
+</div>
+
+<br/>
 
 ## Why Olion?
 
