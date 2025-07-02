@@ -3,7 +3,7 @@
 
 <br/><hr/><br/>
 
-<header align="center">
+<header><div align="center">
 <img
     src="https://raw.githubusercontent.com/olion-lang/assets/refs/heads/main/olion-header.png"
     width="66.7%"
@@ -11,7 +11,7 @@
 <h1>
     Olion - a programming language with Algebraic Effects on WASI.
 </h1>
-</header>
+</div></header>
 
 ## Why Olion?
 
@@ -166,7 +166,7 @@ fn main() <$stdout, $actor, $channel> {
         sum
     })
 
-    
+
 }
 ```
 
