@@ -31,7 +31,8 @@
 
 ## Syntax Overview
 
-`$effect`s are described later.
+- Effects are described later.
+- Builtin types are described in [builtin_types.md](./docs/builtin_types.md).
 
 ```rust
 let var_1: TypeName = expression1 // `;` is not required
