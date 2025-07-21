@@ -6,7 +6,7 @@ let sub = (a: int, b: int) <> int {
     a - b
 }
 
-let parse_int = (input: string) <> Result<int, string> {
+let parse_int = (input: string) <> Result[int, string] {
     match int::parse(input) {
         Ok(n) -> Ok(n)
         Err(e) -> Err("Invalid number '{{input}}': {{e}}")
@@ -18,7 +18,7 @@ record Inputs {
     b: int
 }
 
-let parse_inputs = (input: string) <> Result<Inputs, string> {
+let parse_inputs = (input: string) <> Result[Inputs, string] {
     val parts = input.trim().split(" ")
     
     if parts.len() != 2 {
@@ -36,7 +36,7 @@ enum Operation {
     Sub
 }
 
-let parse_operation = (input: string) <> Result<Operation, string> {
+let parse_operation = (input: string) <> Result[Operation, string] {
     match input.trim() {
         "add" -> Ok(Operation::Add)
         "sub" -> Ok(Operation::Sub)
@@ -51,15 +51,22 @@ let perform = (op: Operation, in: Inputs) <> int {
     }
 }
 
-let main = () <$stdin, $stdout> Result<(), string> {
+let app = () <$stdin, $stdout> Result[(), string] {
     val input = readln("Enter two numbers separated by a space: ")
     val inputs = parse_inputs(input)?
     
     val operation_input = readln("Choose an operation (add/sub): ")
-    val op = parse_operation(operation_input.trim())?
+    val op = parse_operation(operation_input)?
     
-    val result = perform(op, a, b)
+    val result = perform(op, inputs)
     
     println("Result: {{result}}")
     Ok(())
+}
+
+let main = () <$stdin, $stdout, $stderr> {
+    match app() {
+        Ok(_) -> ()
+        Err(e) -> eprintln("Error: {{e}}")
+    }
 }

@@ -6,14 +6,14 @@ let sub = (a: int, b: int) <> int {
     a - b
 }
 
-let parse_int = (input: string) <> Result<int, string> {
+let parse_int = (input: string) <> Result[int, string] {
     match int::parse(input) {
         Ok(n) -> Ok(n)
         Err(e) -> Err("Invalid number '{{input}}': {{e}}")
     }
 }
 
-let main = () <$stdin, $stdout> Result<(), string> {
+let app = () <$stdin, $stdout> Result[(), string] {
     val input = readln("Enter two numbers separated by a space: ")
     val parts = input.trim().split(" ")
     
@@ -34,4 +34,11 @@ let main = () <$stdin, $stdout> Result<(), string> {
     
     println("Result: {{result}}")
     Ok(())
+}
+
+let main = () <$stdin, $stdout, $stderr> {
+    match app() {
+        Ok(_) -> ()
+        Err(e) -> eprintln("Error: {{e}}")
+    }
 }

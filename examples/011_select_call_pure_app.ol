@@ -67,22 +67,19 @@ let perform = (op: Operation, in: Inputs) <> int {
     }
 }
 
-let app = () <$stdin, $stdout> Result[(), SelectCallError] {
-    val input = readln("Enter two numbers separated by a space: ")
+// Pure application logic
+let app = (input: string, operation_input: string) <> Result[int, SelectCallError] {
     val inputs = parse_inputs(input)?
-    
-    val operation_input = readln("Choose an operation (add/sub): ")
     val op = parse_operation(operation_input)?
-    
-    val result = perform(op, inputs)
-    
-    println("Result: {{result}}")
-    Ok(())
+    perform(op, inputs)
 }
 
-let main = () <$stdin, $stdout, $stderr> {
-    match app() {
-        Ok(_) -> ()
+// Main function to run the application
+let main = () <$stdio> { // equivalent to `<$stdin, $stdout, $stderr>`, a shortcut for full access to standard input/output/error
+    val input = readln("Enter two numbers separated by a space: ")
+    val operation_input = readln("Choose an operation (add/sub): ")
+    match app(input, operation_input) {
+        Ok(n) -> println("Result: {{n}}")
         Err(e) -> eprintln("Error: {{e}}")
     }
 }
