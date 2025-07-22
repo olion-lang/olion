@@ -37,7 +37,7 @@ impl Inputs {
         val a = parse_int(parts[0])?
         val b = parse_int(parts[1])?
         
-        Ok(Self { a, b })
+        Ok({ a, b }) // record name can be omitted when it's obvious from context
     }
 }
 
@@ -47,10 +47,10 @@ enum Operation {
 }
 
 impl Operation {
-    let new = (input: string) <> Result[Operation, SelectCallError] {
+    let new = (input: string) <> Result[Self, SelectCallError] {
         match input.trim() {
-            "add" -> Ok(Operation::Add)
-            "sub" -> Ok(Operation::Sub)
+            "add" -> Ok(Self::Add)
+            "sub" -> Ok(Self::Sub)
             other -> Err(SelectCallError::UnknownOperation(other))
         }
     }
