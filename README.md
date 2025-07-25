@@ -10,7 +10,7 @@
 />
 <br/>
 <h1>
-  Olion - A programming language with ...
+  Olion - A programming language with effect system on Wasm Component Model
 </h1>
 </div></header>
 
@@ -26,10 +26,10 @@
 
 - **Static Effect Tracking**: All side effects of Olion program may causes are
   statically checked by the type system.
-- **Capability-based Security**: Olion's builtin effects (stdout, fsread, ...) are
-  seamlessly mapped to WASI interface, and their capabilities are securely checked by Wasm runtime.
+- **Capability-Based Security**: Olion's effects (`$stdout`, `$fsread`, ...) are
+  seamlessly mapped to WASI, and their detailed capabilities are checked in runtime.
 - **Portability**: Olion applications are built into Wasm Components, running on
-  any runtimes that supports WASI and Wasm Component Model.
+  any Wasm runtimes that supports Wasm Component Model.
 
 ## License
 
