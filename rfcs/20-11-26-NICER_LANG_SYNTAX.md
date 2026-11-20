@@ -40,12 +40,12 @@ The goal is not to make effects less explicit, but to make their requirements an
 
 ### 1. Explicit function effect requirements
 
-Introduce `require` as an explicit declaration of a function's effect requirements.
+Introduce an effect requirement clause in function signatures.
 
 **Proposed syntax:**
 
 ```ol
-fn name() <returnT> require |io::{stdin}| {
+fn name() <returnT> |:io::{stdin}| {
     stdin.readln
 }
 ```
@@ -53,7 +53,7 @@ fn name() <returnT> require |io::{stdin}| {
 The proposed structure is:
 
 ```ol
-fn <name>(<parameters>) <return_type> require <effect_requirements> {
+fn <name>(<parameters>) <return_type> |:<effect_requirements>" {
     <body>
 }
 ```
@@ -63,7 +63,7 @@ Effect requirements should be declared directly in the function signature rather
 For example:
 
 ```ol
-fn read_input() string require |io::{stdin}| {
+fn read_input() string |:io::{stdin}| {
     stdin.readln
 }
 ```
